@@ -14,11 +14,11 @@
     },
     {
       "title": "## 💬 Other",
-      "labels": ["other", "documentation"]
+      "labels": ["other", "documentation", "docs"]
     },
     {
       "title": "## 📦 Dependencies",
-      "labels": ["dependencies"]
+      "labels": ["dependencies", "deps", "chore"]
     }
   ],
   "sort": "ASC",
