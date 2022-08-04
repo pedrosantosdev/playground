@@ -1,0 +1,26 @@
+name: Main
+
+on:
+  push:
+    tags:
+      - "*"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Build Changelog
+        id: github_release
+        uses: mikepenz/release-changelog-builder-action@v3
+        with:
+          ignorePreReleases: true
+          configuration: ".github/changelog-builder/configuration.json"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Debug Body
+        run: echo ${{steps.github_release.outputs.changelog}}
+      #- name: Release
+      #  uses: softprops/action-gh-release@v1
+      #  with:
+      #    body: ${{steps.github_release.outputs.changelog}}
